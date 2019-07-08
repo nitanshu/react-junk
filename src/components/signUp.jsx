@@ -28,17 +28,17 @@ class SignUp extends Component {
 
     state = {  }
     render() { 
-        return (
-             <form onSubmit={this.handleSubmit}>
-                 <label>Name:</label>
-                 <input type="text" name="name" onChange={this.handleChange}/><br />
-                 <label>Mobile No:</label>
-                 <input type="text" name="mobile_no" onChange={this.handleChange}/><br />
-                 <label>Email:</label>
-                 <input type="text" name="email" onChange={this.handleChange}/><br />
-                 <label>Password:</label>
-                 <input type="password" name="password" onChange={this.handleChange}/><br />
-                 <input type="submit" value="Sign Up"/>
+        return (        
+             <form class="form-group col-md-4 col-md-offset-6" onSubmit={this.handleSubmit}>
+                <h4 align="center">Sign Up</h4>            
+                <input type="text" name="name" onChange={this.handleChange} class="form-control" placeholder="Name"/><br />                
+                <input type="text" name="mobile_no" onChange={this.handleChange} class="form-control" placeholder="Mobile Number"/><br />            
+                <input type="email" name="email" onChange={this.handleChange} class="form-control" placeholder="Email"/><br />        
+                <input type="password" name="password" onChange={this.handleChange} class="form-control" placeholder="Password"/><br />
+                <input type="text" class="form-control" placeholder="City" /><br />
+                <input type="text" class="form-control" placeholder="State" /><br />
+                <input type="text" class="form-control" placeholder="Zip" /><br />
+                <input type="submit" class="btn btn-primary" value="Sign Up" />
              </form>
              );
     }

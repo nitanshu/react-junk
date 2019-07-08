@@ -12,30 +12,42 @@ class Header extends Component {
         this.setState(state => ({
             signInToggle: !state.signInToggle
         }));
-      }
-    
+    }
+
 
     render() {
         return (
             <div className='headerContent'>
-                <div className='leftContent'>
-                    Header is here
-                </div>
-                <div className='rightContent'>  
-                <header>
-                    <nav>
-                        <Link to="/">Home</Link>
-                        <Link to="/about/">About</Link>
-                        <Link to="/contact/">Contact</Link>                                 
-                        <Link to="/sign_up/">SignUp</Link>
-                        <Link to="/sign_in/">SignIn</Link>
-                    </nav>            
-                </header>          
-                    <button onClick={this.signIn}>
-                        {this.state.signInToggle ? 'Sign In' : 'Sign Out'}
+                <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+                    <Link class="navbar-brand" to="/">ReactJunk</Link>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
                     </button>
-                </div>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <Link class="nav-link" to="/">Home<span class="sr-only">(current)</span></Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link class="nav-link" to="/about">About</Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link class="nav-link" to="/contact">Contact</Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link class="nav-link" to="/sign_up/">Sign Up</Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link class="nav-link" to="/sign_in/">Sign In</Link>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                {/* <button onClick={this.signIn}>
+                        {this.state.signInToggle ? 'Sign In' : 'Sign Out'}
+                    </button> */}
             </div>
+
         );
     }
 }

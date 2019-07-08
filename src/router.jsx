@@ -5,17 +5,19 @@ import About from './components/about';
 import Contact from './components/contact';
 import SignUp from './components/signUp';
 import SignIn from './components/signIn';
+import MapContainer from './components/map';
 
 const Routing = () => (
-    <main>
+    <div class="container-fluid">
       <Switch>
         <Route exact path='/' component={Home}/>
         <Route path='/about' component={About}/>
         <Route path='/contact' component={Contact}/>
         <Route path='/sign_up' component={SignUp}/>
         <Route path='/sign_in' component={SignIn}/>
+        <Route path='/location' component={MapContainer}/>
       </Switch>
-    </main>
+    </div>
   )
 
 export default Routing;
