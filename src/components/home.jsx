@@ -7,8 +7,8 @@ class Home extends Component {
         super()
 
         this.state = {
-            latitude: 0,
-            longitude: 0,
+            latitude: 27,
+            longitude: 22,
         }
         this.getMyLocation = this.getMyLocation.bind(this)
     }
@@ -35,22 +35,20 @@ class Home extends Component {
     }
 
     render() {
-        const { latitude, longitude } = this.state
+        const { latitude, longitude } = this.state;
         return (
             <div class="home">
                 <div style={{ margin: '100px' }}>
                     <div>
-                        <input type="text" value={latitude} />
-                        <input type="text" value={longitude} />
-                    </div>
+                        Current latitude <input type="text" value={latitude} />
+                        Current longitude <input type="text" value={longitude} />
+                    </div>                
                     <Map
                         google={this.props.google}
-                        center={{ lat: 27.00012, lng: 23.090 }}
-                        height='500px'
+                        center={{ lat: latitude, lng: longitude }}
+                        height='300px'
                         zoom={15}
                     />
-
-
                 </div>
             </div>
         );
