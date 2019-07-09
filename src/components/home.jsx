@@ -7,8 +7,9 @@ class Home extends Component {
         super()
 
         this.state = {
-            latitude: 27,
-            longitude: 22,
+            latitude: 15,
+            longitude: 15,
+            isMapRender: false
         }
         this.getMyLocation = this.getMyLocation.bind(this)
     }
@@ -26,6 +27,7 @@ class Home extends Component {
                 this.setState({
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude,
+                    isMapRender: true,
                 })
             }, (error) => {
                 this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
@@ -43,12 +45,12 @@ class Home extends Component {
                         Current latitude <input type="text" value={latitude} />
                         Current longitude <input type="text" value={longitude} />
                     </div>                
-                    <Map
+                    {this.state.isMapRender ? <Map 
                         google={this.props.google}
                         center={{ lat: latitude, lng: longitude }}
                         height='300px'
                         zoom={15}
-                    />
+                    /> : null}
                 </div>
             </div>
         );
