@@ -6,6 +6,7 @@ import Contact from './components/contact';
 import SignUp from './components/signUp';
 import SignIn from './components/signIn';
 import MapContainer from './components/map';
+import AddressFetcher from './components/addressFetcher';
 
 const Routing = () => (
     <div class="container-fluid">
@@ -16,6 +17,7 @@ const Routing = () => (
         <Route path='/sign_up' component={SignUp}/>
         <Route path='/sign_in' component={SignIn}/>
         <Route path='/location' component={MapContainer}/>
+        <Route path='/address' component={AddressFetcher}/>
       </Switch>
     </div>
   )

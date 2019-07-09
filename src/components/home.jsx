@@ -1,56 +1,27 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Map from './google_map';
 
 class Home extends Component {
-    constructor() {
-        super()
-
-        this.state = {
-            latitude: 15,
-            longitude: 15,
-            isMapRender: false
-        }
-        this.getMyLocation = this.getMyLocation.bind(this)
-    }
-
-
-    componentDidMount() {
-        this.getMyLocation()
-    }
-
-    getMyLocation() {
-        const location = window.navigator && window.navigator.geolocation
-
-        if (location) {
-            location.getCurrentPosition((position) => {
-                this.setState({
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude,
-                    isMapRender: true,
-                })
-            }, (error) => {
-                this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
-            })
-        }
-
-    }
-
+    state = {}
     render() {
-        const { latitude, longitude } = this.state;
         return (
             <div class="home">
-                <div style={{ margin: '100px' }}>
-                    <div>
-                        Current latitude <input type="text" value={latitude} />
-                        Current longitude <input type="text" value={longitude} />
-                    </div>                
-                    {this.state.isMapRender ? <Map 
-                        google={this.props.google}
-                        center={{ lat: latitude, lng: longitude }}
-                        height='300px'
-                        zoom={15}
-                    /> : null}
+                <div class="card w-25 p-3">
+                    <img class="card-img-top" src="/home/nitanshu/Downloads/small_1550288890-artwork.jpg" alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">Request</h5>
+                        <p class="card-text">This world is full of request don't make any more request.</p>
+                        <Link class="nav-link" to="/address/">Raise Request</Link>
+                    </div>
+                </div>
+                <br />
+                <div class="card w-25 p-3">
+                    <img class="card-img-top" src="..." alt="Card image cap" />
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <Link class="nav-link" to="/location/">Location</Link>
+                    </div>
                 </div>
             </div>
         );
